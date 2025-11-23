@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website - Design Report</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.75in;
+            background: white;
+        }
+        
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 8px;
+            border-bottom: 3px solid #437acb;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #437acb;
+            font-size: 20px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+        
+        h3 {
+            color: #555;
+            font-size: 16px;
+            margin-top: 16px;
+            margin-bottom: 8px;
+        }
+        
+        p {
+            margin-bottom: 12px;
+            text-align: justify;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .metadata {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .section {
+            margin-bottom: 24px;
+        }
+        
+        ul {
+            margin-left: 24px;
+            margin-bottom: 12px;
+        }
+        
+        li {
+            margin-bottom: 6px;
+        }
+        
+        .screenshot {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .screenshot-caption {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        
+        @media print {
+            body {
+                padding: 0.5in;
+            }
+        }
+        
+        .footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Portfolio Website Design Report</h1>
+        <div class="metadata">
+            <p><strong>Author:</strong> Bui Quang Viet An</p>
+            <p><strong>Date:</strong> November 2025</p>
+            <p><strong>Live URL:</strong> <a href="https://alexan75541.github.io/HtmlPortfolio/">alexan75541.github.io/HtmlPortfolio</a></p>
+            <p><strong>Repository:</strong> <a href="https://github.com/alexan75541/HtmlPortfolio">github.com/alexan75541/HtmlPortfolio</a></p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>1. Design Rationale</h2>
+        
+        <h3>1.1 Design Philosophy</h3>
+        <p>
+            The website follows a clean, modern design with these principles:
+        </p>
+        <ul>
+            <li><strong>Simplicity:</strong> Minimalist design focusing on content</li>
+            <li><strong>Accessibility:</strong> High contrast, semantic HTML, clear navigation</li>
+            <li><strong>Performance:</strong> Lightweight code with optimized assets</li>
+            <li><strong>Consistency:</strong> Unified color scheme and typography</li>
+        </ul>
+
+        <h3>1.2 Color Scheme</h3>
+        <ul>
+            <li><strong>Primary Blue (#437acb):</strong> Trust and professionalism</li>
+            <li><strong>Secondary Orange (#ff9800):</strong> Energy and highlights</li>
+            <li><strong>Light Cyan (#00d9ff):</strong> Headings and accents</li>
+            <li><strong>Dark Gray (#333):</strong> Readable body text</li>
+        </ul>
+
+        <h3>1.3 Typography</h3>
+        <p>
+            Uses <strong>Dosis</strong> font from Google Fonts for clean, modern appearance with excellent readability.
+        </p>
+
+        <h3>1.4 Layout Structure</h3>
+        <ul>
+            <li><strong>Home:</strong> Introduction with profile picture</li>
+            <li><strong>About:</strong> Background, skills, and goals</li>
+            <li><strong>Projects:</strong> Card-based grid layout</li>
+            <li><strong>Contact:</strong> Contact information and links</li>
+        </ul>
+
+        <h3>1.5 Responsive Design</h3>
+        <ul>
+            <li><strong>Fluid Grid:</strong> CSS Grid with auto-fit</li>
+            <li><strong>Flexible Typography:</strong> clamp() for viewport scaling</li>
+            <li><strong>Mobile-First:</strong> Optimized for mobile, enhanced for desktop</li>
+            <li><strong>Adaptive Navigation:</strong> Horizontal on desktop, vertical on mobile</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>2. Client Testing Results</h2>
+        
+        <h3>2.1 Mobile Screenshot</h3>
+        <img src="mobileTesting.jpg" alt="Mobile Testing Screenshot" class="screenshot" style="max-width: 300px;">
+        <p class="screenshot-caption">Figure: Mobile responsive layout demonstration</p>
+
+        <h3>2.2 PC Testing Screenshot</h3>
+        <img src="assets/project1.png" alt="PC Testing Screenshot" class="screenshot">
+        <p class="screenshot-caption">Figure: PC testing result using project1.png</p>
+        
+        <h3>2.3 Responsive Features</h3>
+        <ul>
+            <li><strong>Header Adaptation:</strong> Navigation stacks vertically on small screens</li>
+            <li><strong>Readable Typography:</strong> Font sizes scale with clamp() function</li>
+            <li><strong>Touch-Friendly:</strong> Buttons expand to full width for easy tapping</li>
+            <li><strong>Content Reflow:</strong> Project cards stack in single column</li>
+            <li><strong>Image Scaling:</strong> All images resize proportionally</li>
+        </ul>
+
+        <h3>2.4 Testing Summary</h3>
+        <p>
+            Successfully tested on mobile (320px-480px), tablet (768px-1024px), and desktop (1200px+) viewports. All navigation, images, and interactive elements work correctly across devices. The responsive design maintains visual consistency and usability on all screen sizes.
+        </p>
+    </div>
+
+    <div class="footer">
+        <p>© 2025 Bui Quang Viet An | Portfolio Website Design Report</p>
+    </div>
+</body>
+</html>
