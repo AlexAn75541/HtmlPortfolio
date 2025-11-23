@@ -16,7 +16,7 @@
 body {
     font-family: 'Dosis', serif;
     font-size: 19px;
-    background: url(/assets/background.jpg) center/cover;
+    background: url("assets/background.jpg") center/cover;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
