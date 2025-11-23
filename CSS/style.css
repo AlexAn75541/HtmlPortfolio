@@ -1,18 +1,22 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap');
 
+
 :root {
-    --primary: #437acb;
-    --secondary: #ff9800;
-    --text: #333;
-    --light: #00d9ff;
+    --primary: #437acb;    /* Blue for main elements */
+    --secondary: #ff9800;  /* Orange for accents */
+    --text: #333;          /* Dark gray for text */
+    --light: #00d9ff;      /* Light blue for highlights */
 }
 
+/* Reset về default cho môi client */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Phần nền với hình nền và bố cục flexbox */
 body {
     font-family: 'Dosis', serif;
     font-size: 19px;
@@ -22,14 +26,15 @@ body {
     flex-direction: column;
 }
 
+/* Cái quả heading tệ nhất tôi từng thử */
 h1 { color: var(--primary); margin-bottom: 1rem; }
 h2 { border-bottom: 3px solid var(--secondary); padding-bottom: 10px; display: inline-flex; }
 h3 { color: var(--light); margin-bottom: 1rem; }
 
-/* Header */
+/* Hiệu ứng bủh bủh lmao trên header */
 .header-wrapper {
     background: rgba(8, 54, 110, 0.7);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);  /* Frosted glass effect */
     margin: 1.5rem auto;
     padding: 1.5rem 1rem;
     width: 90%;
@@ -41,35 +46,38 @@ h3 { color: var(--light); margin-bottom: 1rem; }
 
 .navbar { display: flex; justify-content: center; padding: 1rem 0 0; }
 
+/* Navigation menu thêm flexbox vào vì trên mạng bảo vậy */
 .navigation-menu {
     list-style: none;
     display: flex;
     width: min(94vw, 980px);
-    gap: clamp(8px, 2vw, 20px);
+    gap: clamp(8px, 2vw, 20px);  
 }
 
-.navigation-menu li { flex: 1; }
+.navigation-menu li { flex: 1; }  /* Cách đều cho mỗi nút trên navmenu */
 
+/* Navmeny nhưng custom lại phần nền, màu, các thứ */
 .navigation-menu a {
     display: block;
     text-align: center;
     text-decoration: none;
     color: white;
     background: #0a82c28d;
-    padding: clamp(8px, 1.6vh, 14px) 0;
+    padding: clamp(8px, 1.6vh, 14px) 0;  /* Responsive padding */
     border-radius: 10px;
     font-weight: 600;
-    font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+    font-size: clamp(0.9rem, 2.2vw, 1.05rem);  /* Responsive font size */
     transition: all 0.2s;
 }
 
+/* trạng thái hover và active */
 .navigation-menu a:hover,
 .navigation-menu a.active {
-    transform: translateY(-3px);
+    transform: translateY(-3px);  /* Lift effect */
     background: #084a9a;
 }
 
-/* Container */
+/* Phần chính của trang(phần mà có chữ và màu trắng)*/
 .container {
     background: rgba(255, 255, 255, 0.95);
     margin: 2rem auto;
@@ -77,18 +85,19 @@ h3 { color: var(--light); margin-bottom: 1rem; }
     width: 90%;
     max-width: 1100px;
     border-radius: 12px;
-    flex: 1;
+    flex: 1;  /* Takes remaining space */
 }
 
+/* Ảnh pfp và làm tròn */
 .profile-img {
-    border-radius: 50%;
+    border-radius: 50%; 
     width: 200px;
     height: 200px;
     margin: 0 auto 1rem;
     box-shadow: 0 4px 15px rgba(51, 0, 255, 0.5);
 }
-
-.tagline {
+/* Phần này ôg quân hướng dẫn*/
+.tagline { 
     text-align: center;
     font-size: 1.2rem;
     color: var(--text);
@@ -96,10 +105,10 @@ h3 { color: var(--light); margin-bottom: 1rem; }
     font-style: italic;
 }
 
-/* Projects */
+/* Phần này copy ở đâu đó, từ đây xuống là cho cả mấy project */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  /* Auto-fit cards */
     gap: 2rem;
     margin-top: 2rem;
 }
@@ -112,12 +121,12 @@ h3 { color: var(--light); margin-bottom: 1rem; }
     transition: transform 0.3s;
 }
 
-.project-card:hover { transform: translateY(-8px); }
+.project-card:hover { transform: translateY(-8px); } 
 
 .project-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover;
+    object-fit: cover;  
 }
 
 .project-card h3 {
@@ -131,6 +140,7 @@ h3 { color: var(--light); margin-bottom: 1rem; }
     line-height: 1.6;
 }
 
+/* Technology tags */
 .tags {
     display: flex;
     gap: 0.5rem;
@@ -141,10 +151,11 @@ h3 { color: var(--light); margin-bottom: 1rem; }
     background: var(--primary);
     color: white;
     padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    border-radius: 20px;  
     font-size: 0.85rem;
 }
 
+/* Nút detail */
 .btn {
     display: block;
     margin: 0 1rem 1rem;
@@ -160,10 +171,10 @@ h3 { color: var(--light); margin-bottom: 1rem; }
 
 .btn:hover {
     background: #2f5a9e;
-    transform: scale(1.05);
+    transform: scale(1.05);  
 }
 
-/* About & Contact */
+/* Trang about  */
 .about-section { line-height: 1.8; }
 .about-section p { margin-bottom: 1.5rem; }
 
@@ -174,6 +185,7 @@ h3 { color: var(--light); margin-bottom: 1rem; }
 
 .skills-list li { margin: 0.5rem 0; }
 
+/* trang contact */
 .contact-info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -191,7 +203,7 @@ h3 { color: var(--light); margin-bottom: 1rem; }
     color: var(--primary);
     text-decoration: none;
 }
-
+/* Chỉnh lại cho contact, copy từ stackoveflow */
 .form-group { margin-bottom: 1.5rem; }
 
 .form-group label {
@@ -223,6 +235,7 @@ h3 { color: var(--light); margin-bottom: 1rem; }
 
 .submit-btn:hover { background: #084a9a; }
 
+/* Footer */
 footer {
     margin-top: auto;
     text-align: center;
@@ -230,6 +243,7 @@ footer {
     color: var(--light);
 }
 
+/* trên mạng bảo cái này sẽ oke cho mobile idk*/
 @media (max-width: 520px) {
     .navigation-menu { flex-direction: column; }
 }
