@@ -56,21 +56,6 @@ HtmlPortfolio/
    - Navigation between pages works
    - Project images load properly
 
-### Browser Compatibility Testing
-
-Test in multiple browsers:
-- ✅ Chrome/Edge (Chromium-based)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
-
-### Responsive Testing
-
-Test at different viewport sizes:
-- 📱 Mobile: 320px - 480px
-- 📱 Tablet: 768px - 1024px
-- 💻 Desktop: 1200px+
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
