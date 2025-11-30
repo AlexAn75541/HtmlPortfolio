@@ -106,6 +106,31 @@
             font-size: 12px;
             color: #666;
         }
+        
+        .code-block {
+            background: #f5f5f5;
+            border-left: 4px solid #437acb;
+            padding: 16px;
+            margin: 16px 0;
+            overflow-x: auto;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            white-space: pre;
+        }
+        
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
     </style>
 </head>
 <body>
@@ -120,71 +145,114 @@
     </div>
 
     <div class="section">
-        <h2>1. Design Rationale</h2>
+        <h2>1. Technical Overview</h2>
         
-        <h3>1.1 Design Philosophy</h3>
+        <h3>1.1 Technology Stack</h3>
         <p>
-            The website follows a clean, modern design with some <stands-points></stands-points>:
+            Built using pure HTML5 and CSS3 without any frameworks or JavaScript dependencies. The site uses modern CSS features for responsive design and visual effects.
         </p>
         <ul>
-            <li><strong>Blurred, rounded corners navigation bar:</strong> rounded in with 12px, along with the same value with blur effect, and 1.5rem padding</li>
-            <li><strong>Boxed, high contrast with rounded body layout:</strong>  font size is at 19px and using the infamous flex-direction :collum which has been prone to failure in some version of Chromium browser</li>
-            <li><strong>Background:</strong> 75% smaller resolution than the original rain-themed wallpaper from Google</li>
-            <li><strong>Profile Picture:</strong> Taken from my Github Personnal account then apply the glitch effect from free image editing website</li>
+            <li><strong>HTML5:</strong> Semantic markup for better structure and accessibility</li>
+            <li><strong>CSS3:</strong> Modern styling with flexbox, CSS Grid, and custom properties</li>
+            <li><strong>Google Fonts:</strong> Dosis font family for typography</li>
+            <li><strong>GitHub Pages:</strong> Hosting platform with proper path configuration</li>
         </ul>
 
-        <h3>1.2 Color Scheme</h3>
+        <h3>1.2 Key Design Features</h3>
         <ul>
-            <li><strong>Primary Blue (#437acb):</strong> Trust and professionalism</li>
-            <li><strong>Secondary Orange (#ff9800):</strong> Energy and highlights</li>
-            <li><strong>Light Cyan (#00d9ff):</strong> Headings and accents</li>
-            <li><strong>Dark Gray (#333):</strong> Readable body text</li>
+            <li><strong>Glassmorphism Effect:</strong> Navigation bar uses <code>backdrop-filter: blur(12px)</code> for frosted glass appearance</li>
+            <li><strong>Flexbox Layout:</strong> Vertical stacking with <code>flex-direction: column</code> for consistent page structure</li>
+            <li><strong>CSS Variables:</strong> Centralized color scheme for easy theme management</li>
+            <li><strong>Responsive Grid:</strong> Auto-fitting project cards using CSS Grid</li>
+            <li><strong>Optimized Assets:</strong> Background image compressed to 25% of original size for faster loading</li>
         </ul>
 
-        <h3>1.3 Typography</h3>
+        <h3>1.3 Technology Implementation</h3>
+        
+        <p><strong>HTML5 Semantic Structure:</strong></p>
+        <p>Uses semantic elements like <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code> for better accessibility and SEO. All pages follow a consistent structure with proper heading hierarchy.</p>
+        
+        <p><strong>CSS3 Flexbox:</strong></p>
+        <p>Applied throughout the site for flexible layouts. The body uses <code>display: flex</code> with <code>flex-direction: column</code> to push the footer to the bottom. Navigation menu uses flexbox for horizontal alignment on desktop.</p>
+        <div class="code-block"><pre>body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}</pre></div>
+        
+        <p><strong>CSS Grid for Projects:</strong></p>
+        <p>Project cards use CSS Grid with <code>auto-fit</code> to automatically adjust columns based on screen size. Each card is minimum 280px wide and expands to fill available space.</p>
+        <div class="code-block"><pre>.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}</pre></div>
+        
+        <p><strong>Backdrop Filter Glassmorphism:</strong></p>
+        <p>The navigation header uses <code>backdrop-filter: blur(12px)</code> combined with semi-transparent background to create a frosted glass effect. This modern CSS property blurs the content behind the element, creating depth and visual hierarchy.</p>
+        <div class="code-block"><pre>.header-wrapper {
+    background: rgba(8, 54, 110, 0.7);  /* 70% opacity blue */
+    backdrop-filter: blur(12px);        /* Blur background */
+    border-radius: 20px;
+    width: 90%;
+    max-width: 1100px;
+}</pre></div>
+        
+        <p><strong>Fluid Typography with clamp():</strong></p>
+        <p>Font sizes and spacing use the <code>clamp()</code> function to scale smoothly between minimum and maximum values based on viewport width. This eliminates the need for multiple breakpoints while maintaining readability across all screen sizes.</p>
+        <div class="code-block"><pre>.navigation-menu a {
+    font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+    /* Min: 0.9rem, Preferred: 2.2% of viewport, Max: 1.05rem */
+    padding: clamp(8px, 1.6vh, 14px) 0;
+}</pre></div>
+        
+        <p><strong>Google Fonts Integration:</strong></p>
+        <p>Imported Dosis font (700 weight) via CSS <code>@import</code> from Google Fonts CDN for consistent typography across all browsers.</p>
+        
+        <p><strong>GitHub Pages Deployment:</strong></p>
+        <p>Relative paths updated to <code>../content/</code> for proper routing on GitHub Pages. Repository configured with <code>index.html</code> at root for automatic deployment.</p>
+
+        <h3>1.4 Responsive Breakpoint</h3>
         <p>
-            Uses <strong>Dosis</strong> font from Google Fonts for clean, modern appearance with excellent readability.
+            Navigation adapts to screen size using a single media query at 520px:
         </p>
-
-        <h3>1.4 Layout Structure</h3>
-        <ul>
-            <li><strong>Buttons on Navigation Bar:</strong> addeding hover and active effect - highlight it from other uninteracted buttons</li>
-            <li><strong>Home, About, Project, Contact pages:</strong> all follow the same code and same layout for better loading, only exception is Project page because the modular sections for each projects has to be created from scratch</li>
-            <li><strong>All of the sub-pages of the website has changed default dir from simply content/... to ../content/... for better adaptation with GitHub Page</strong></li>
-        </ul>
-
-        <h3>1.5 Responsive Design</h3>
-        <ul>
-            <li><strong>Fluid Grid:</strong> CSS Grid with auto-fit</li>
-            <li><strong>Flexible Typography:</strong> clamp() for viewport scaling</li>
-            <li><strong>Mobile-First:</strong> Optimized for mobile, enhanced for desktop</li>
-            <li><strong>Adaptive Navigation:</strong> Horizontal on desktop, vertical on mobile</li>
-        </ul>
+        <div class="code-block"><pre>@media (max-width: 520px) {
+    .navigation-menu {
+        flex-direction: column;  /* Stack vertically on mobile */
+    }
+}</pre></div>
     </div>
 
     <div class="section">
-        <h2>2. Client Testing Results</h2>
+        <h2>2. Responsive Testing</h2>
         
-        <h3>2.1 Mobile Screenshot</h3>
+        <h3>2.1 Mobile Testing (320px-480px)</h3>
         <img src="mobileTesting.jpg" alt="Mobile Testing Screenshot" class="screenshot" style="max-width: 300px;">
-        <p class="screenshot-caption">Figure: Mobile responsive layout demonstration</p>
-
-        <h3>2.2 PC Testing Screenshot</h3>
-        <img src="assets/project1.png" alt="PC Testing Screenshot" class="screenshot">
-        <p class="screenshot-caption">Figure: PC testing result using project1.png</p>
+        <p class="screenshot-caption">Figure 1: Mobile viewport with vertical navigation</p>
         
-        <h3>2.3 Responsive Features</h3>
+        <p><strong>Mobile Behavior:</strong></p>
         <ul>
-            <li><strong>Header Adaptation:</strong> Navigation stacks vertically on small screens</li>
-            <li><strong>Readable Typography:</strong> Font sizes scale with clamp() function</li>
-            <li><strong>Touch-Friendly:</strong> Buttons expand to full width for easy tapping</li>
-            <li><strong>Content Reflow:</strong> Project cards stack in single column</li>
-            <li><strong>Image Scaling:</strong> All images resize proportionally</li>
+            <li>Navigation buttons stack vertically for easier touch interaction</li>
+            <li>Content containers expand to full width</li>
+            <li>Font sizes scale down using <code>clamp()</code> function</li>
+            <li>Project cards display in single column layout</li>
         </ul>
 
-        <h3>2.4 Testing Summary</h3>
+        <h3>2.2 Desktop Testing (1200px+)</h3>
+        <img src="assets/project1.png" alt="PC Testing Screenshot" class="screenshot">
+        <p class="screenshot-caption">Figure 2: Desktop viewport with horizontal navigation</p>
+        
+        <p><strong>Desktop Behavior:</strong></p>
+        <ul>
+            <li>Navigation buttons arranged horizontally across header</li>
+            <li>Content centered with max-width of 1100px</li>
+            <li>Project cards display in multi-column grid layout</li>
+            <li>Hover effects on interactive elements (buttons lift up 3px)</li>
+        </ul>
+
+        <h3>2.3 Browser Compatibility</h3>
         <p>
-            Successfully tested on mobile (320px-480px), tablet (768px-1024px), and desktop (1200px+) viewports. All navigation, images, and interactive elements work correctly across devices. The responsive design maintains visual consistency and usability on all screen sizes.
+            Tested successfully on Chrome, Firefox, and Safari (desktop and mobile versions). The <code>backdrop-filter</code> property works on all modern browsers. Note: Chromium versions below 85 may have rendering issues with <code>flex-direction: column</code>.
         </p>
     </div>
 
